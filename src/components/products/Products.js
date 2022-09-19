@@ -8,8 +8,9 @@ export default function Products() {
    <div className="cart">
    Shopping Cart: 0 total items
    
-   </div>
+  
    <div className="product"><span role="img" aria-label="ice cream">🍦</span></div>
         <button>Add</button> <button>Remove</button>
+      </div>
       </div>
     )}
