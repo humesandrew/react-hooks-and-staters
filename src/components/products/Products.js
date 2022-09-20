@@ -23,6 +23,7 @@ export default function Products() {
     };
 
     const decrementCart = () => {
+      if (cart > 0) 
       setCurrentCart(cart - 1);
       console.log(cart);
     };
@@ -45,6 +46,7 @@ export default function Products() {
    <div className="product"><span role="img" aria-label="ice cream">🍦</span>
    </div>
         <button onClick={incrementCart}>Add</button> 
+        
         <button onClick={decrementCart}>Remove</button>
         <button onClick={clearCart}>Clear</button>
       </div>
