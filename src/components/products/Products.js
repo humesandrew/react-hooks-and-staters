@@ -15,6 +15,7 @@ export default function Products() {
 // we are setting our state of "cart" to 0 initially, then using the callback function setCurrentCart to change it later//
 
 // useDocumentTitle(`Your cart has ${cart} items.`);
+// this hook didnt work, but useEffect did to render a simulatenous change of document title. 
 
     const incrementCart = () => {
       setCurrentCart(cart + 1);
@@ -25,6 +26,10 @@ export default function Products() {
       setCurrentCart(cart - 1);
       console.log(cart);
     };
+
+    const clearCart = () => {
+      setCurrentCart(0)
+    }
     
     useEffect(() => {
       document.title = `Your cart contains ${cart} items`
@@ -39,7 +44,9 @@ export default function Products() {
    
    <div className="product"><span role="img" aria-label="ice cream">🍦</span>
    </div>
-        <button onClick={incrementCart}>Add</button> <button onClick={decrementCart}>Remove</button>
+        <button onClick={incrementCart}>Add</button> 
+        <button onClick={decrementCart}>Remove</button>
+        <button onClick={clearCart}>Clear</button>
       </div>
       </div>
     )}
