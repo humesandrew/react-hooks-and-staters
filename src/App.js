@@ -2,6 +2,10 @@ import "./app.css";
 import Topbar from "./components/topbar/Topbar";
 import Products from "./components/products/Products";
 import Greeting from "./components/greeting/Greeting";
+import Todo from "./components/todo/Todo";
+
+
+
 
 function App() {
   return (
@@ -9,6 +13,7 @@ function App() {
       <Topbar />
       <Greeting />
       <Products />
+      <Todo />
     </div>
   );
 }
