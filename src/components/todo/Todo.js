@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-// import data from "./data.json";
+
 import "./todo.scss";
 
 
 export default function Todo() {
 
+    const [ toDoList, setToDoList ] = useState();
 
 
 return(
