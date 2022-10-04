@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./todo.scss";
 
@@ -12,6 +12,8 @@ function CreateTask({ addTask }) {
     addTask(value);
     setValue("");
   };
+
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -31,20 +33,23 @@ function CreateTask({ addTask }) {
 
 
 
-function Task({ task }) {
+function Task({ task, index, completeTask, removeTask }) {
   return (
     <div
       className="task"
       style={{ textDecoration: task.completed ? "line-through" : "" }}
     >
-      <h2>{task.title}</h2>
-
+      {task.title}
+      <button style={{ backgroundColor: 'red' }} onClick={() => removeTask(index)}>X</button>
+      <button onClick={() => completeTask(index)}>Complete</button>
+      
    
     </div>
   );
 }
 
 function Todo() {
+  const [tasksRemaining, setTasksRemaining] = useState(0);
   const [tasks, setTasks] = useState([
     {
       title: "Grab some Pizza",
@@ -63,30 +68,47 @@ function Todo() {
     },
   ]);
 
+
+  useEffect(() => {
+    setTasksRemaining(tasks.filter(task => !task.completed).length)
+  });
+
   const addTask = title => {
     const newTasks = [...tasks, { title, completed: false }];
     setTasks(newTasks);
 };
 
+const completeTask = index => {
+  const newTasks = [...tasks];
+  newTasks[index].completed = true; 
+  setTasks(newTasks);
+};
+
+const removeTask = index => {
+  const newTasks = [...tasks];
+  newTasks[index].completed = true;
+  newTasks.splice(index, 1);
+  setTasks(newTasks);
+  };
 
 
   return (
     <div className="todo">
-      <h2>This is a Todo list.</h2>
+      <h1>This is a Todo list.</h1>
       <div className="todo-container">
-        <div className="header">ToDo - Items </div>
+        <div className="header"><h2>Tasks remaining: {tasksRemaining} </h2></div>
         <div className="tasks">
           {tasks.map((task, index) => (
-            <Task task={task} index={index} key={index} />
+            <Task task={task} index={index} completeTask={completeTask} removeTask={removeTask} key={index} />
           ))}
 
-
+</div>
              <div className="create-task" >
                     <CreateTask addTask={addTask} />
                 </div>
 
                 
-        </div>
+        
       </div>
     </div>
   );
