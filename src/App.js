@@ -3,7 +3,7 @@ import Topbar from "./components/topbar/Topbar";
 import Products from "./components/products/Products";
 import Greeting from "./components/greeting/Greeting";
 import Todo from "./components/todo/Todo";
-
+import Grocery from "./components/grocery/Grocery";
 
 
 
@@ -14,6 +14,7 @@ function App() {
       <Greeting />
       <Products />
       <Todo />
+      <Grocery />
     </div>
   );
 }
