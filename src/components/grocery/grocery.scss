@@ -1,0 +1,36 @@
+.grocery {
+
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #78c0c2;
+}
+
+.grocery-container {
+    background: rgb(41, 33, 33);
+    width: 40vw;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 20px 10px;
+    color: white;
+    border: 3px solid rgb(36, 110, 194);
+}
+
+.grocery-task {
+    margin: 2em 5em;
+    width: 75%;
+    outline: none;
+    border: none;
+    padding: 0.7em; 
+}
+
+.grocery-items {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.4em 0.25em;
+}

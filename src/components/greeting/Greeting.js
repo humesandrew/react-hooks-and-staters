@@ -23,12 +23,14 @@ const handleLastNameChange = (e) => setLastName(e.target.value);
 useEffect(() => {
     window.localStorage.setItem('hooksFirstName', firstName);
     window.localStorage.setItem('hooksLastName', lastName);
+    // document.title = `Welcome to the app ${firstName} ${lastName}`;
+   
   });
 
 return(
     <div className='greeting'>
 
-    <h2>This is a greeting tester. </h2>
+    <h2>This is a greeting example. </h2>
 
     <input value={firstName} onChange={handleFirstNameChange}></input>
     < br/>

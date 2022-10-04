@@ -94,7 +94,7 @@ const removeTask = index => {
 
   return (
     <div className="todo">
-      <h1>This is a Todo list.</h1>
+      <h2>This is a Todo list example.</h2>
       <div className="todo-container">
         <div className="header"><h2>Tasks remaining: {tasksRemaining} </h2></div>
         <div className="tasks">

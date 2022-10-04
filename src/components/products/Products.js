@@ -33,13 +33,15 @@ export default function Products() {
     }
     
     useEffect(() => {
-      document.title = `Your cart contains ${cart} items`
+     
+      document.title = `Welcome ${window.localStorage.getItem('hooksFirstName')}, your cart contains ${cart} items`
+      
     });
 
     return (
       <div>
    <div className="cart">
-    <h2>Shopping Cart Example</h2>
+    <h2>This is a shopping cart example.</h2>
    Shopping Cart: {cart} total items
    
    
