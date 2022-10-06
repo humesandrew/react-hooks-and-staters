@@ -2,6 +2,28 @@ import React, { useState, useEffect } from "react";
 import "./grocery.scss";
 
 
+
+function CreateGroceryItem({ addGroceryItem }) {
+  const [value, setValue] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value) return;
+    addGroceryItem(value);
+    setValue("");
+ 
+}
+return(
+  <form onSubmit={handleSubmit}>
+    <input 
+    type="text" 
+    className="grocery-task" 
+    placeholder="Please enter a grocery item."
+    onChange={(e) => setValue(e.target.value)}>
+
+</input>
+</form>
+) };
+
 function GroceryItem({ groceryItem, index }) {
   return(
     <div className="groceryItem">
@@ -18,12 +40,12 @@ export default function GroceryList() {
     {title:"Soy Sauce"}, 
     {title:"Lettuce"}, 
   ]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-   
-  };
+ 
 
-
+  const addGroceryItem = title => {
+    const newGroceryItems = [...groceryItems, { title }];
+    setGroceryItems(newGroceryItems);
+};
 
 return(
 <div>
@@ -33,16 +55,15 @@ return(
 <h2>What item do you need at the grocery store? </h2>
 <h3>Total Items in List: </h3>
 
-<form onSubmit={handleSubmit}><input type="text" className="grocery-task" placeholder="Please enter a grocery item."
-onChange={(e) => setGroceryItems(e.target.value)}>
 
-</input>
-</form>
 <div className="groceryItems">
   {groceryItems.map((groceryItem, index) => (
     <GroceryItem groceryItem={groceryItem} index={index} key={index} />
   ))}
    </div> 
+<div className="createGroceryItem">
+    <CreateGroceryItem addGroceryItem={addGroceryItem} />
+</div>
 </div>
 </div>
 
