@@ -25,9 +25,12 @@ return(
 ) };
 
 function GroceryItem({ groceryItem, index }) {
+
+  
   return(
     <div className="groceryItem">
         {groceryItem.title}
+        
       </div>
   )
 }
@@ -40,12 +43,20 @@ export default function GroceryList() {
     {title:"Soy Sauce"}, 
     {title:"Lettuce"}, 
   ]);
- 
+  const [groceriesRemaining, setGroceriesRemaining] = useState(0);
+  useEffect(() => {
+    setGroceriesRemaining(groceryItems.length)
+  });
 
   const addGroceryItem = title => {
     const newGroceryItems = [...groceryItems, { title }];
     setGroceryItems(newGroceryItems);
 };
+
+function completeGroceryList() {
+  setGroceryItems(null);
+}
+
 
 return(
 <div>
@@ -53,7 +64,7 @@ return(
 <header><h2>This is a grocery list example.</h2></header>
 <div className="grocery-container">
 <h2>What item do you need at the grocery store? </h2>
-<h3>Total Items in List: </h3>
+<h3>Total Items in List: {groceriesRemaining} </h3>
 
 
 <div className="groceryItems">
@@ -63,6 +74,8 @@ return(
    </div> 
 <div className="createGroceryItem">
     <CreateGroceryItem addGroceryItem={addGroceryItem} />
+    <button onClick={completeGroceryList}>Clear list</button>
+
 </div>
 </div>
 </div>
