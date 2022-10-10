@@ -12,6 +12,8 @@ function CreateGroceryItem({ addGroceryItem }) {
     setValue("");
  
 }
+
+
 return(
   <form onSubmit={handleSubmit}>
     <input 
@@ -54,11 +56,12 @@ export default function GroceryList() {
 };
 
 function completeGroceryList() {
-  setGroceryItems(null);
+  setGroceryItems([]);
 }
 
 
 return(
+  
 <div>
 <div className="grocery">
 <header><h2>This is a grocery list example.</h2></header>
@@ -74,7 +77,7 @@ return(
    </div> 
 <div className="createGroceryItem">
     <CreateGroceryItem addGroceryItem={addGroceryItem} />
-    <button onClick={completeGroceryList}>Clear list</button>
+    <button className="clear-btn" onClick={completeGroceryList}>Clear list</button>
 
 </div>
 </div>
