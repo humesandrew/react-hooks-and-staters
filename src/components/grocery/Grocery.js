@@ -48,7 +48,7 @@ export default function GroceryList() {
   const [groceriesRemaining, setGroceriesRemaining] = useState(0);
   useEffect(() => {
     setGroceriesRemaining(groceryItems.length)
-  });
+  }, [groceryItems.length]);
 
   const addGroceryItem = title => {
     const newGroceryItems = [...groceryItems, { title }];
