@@ -53,6 +53,7 @@ export default function GroceryList() {
   const addGroceryItem = title => {
     const newGroceryItems = [...groceryItems, { title }];
     setGroceryItems(newGroceryItems);
+    window.localStorage.setItem('Grocery List', JSON.parse(newGroceryItems));
 };
 
 function completeGroceryList() {
