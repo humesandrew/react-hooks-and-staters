@@ -1,4 +1,4 @@
-import "./app.css";
+
 import Topbar from "./components/topbar/Topbar";
 import Products from "./components/products/Products";
 import Greeting from "./components/greeting/Greeting";
